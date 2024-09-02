@@ -6,22 +6,22 @@ import { product } from '../models/product';
 })
 export class TriPipe implements PipeTransform {
 
-  transform(table: any[], column: string): product[] {
-    if (column=="") {
-      return table;
+  transform(tab: any[], column: string): product[] {
+    if(column==""){
+      return tab;
     }
-    return table.sort((a, b) => {
-      console.log(column)
-      console.log(a)
-      if (typeof a[column] === 'number' && typeof b[column] === 'number') { 
-        console.log(typeof a[column])
-        return a[column] - b[column]; // Numerical comparison 
-      } else { 
-        // String comparison (case-insensitive) 
-        console.log(typeof a[column])
-        return a[column].localeCompare(b[column]);  
-      } 
-    })
+    return tab.sort((a,b) =>{
+      if(typeof a[column]=="string" && typeof b[column]=="string"){
+        return a[column].localeCompare(b[column]);
+      }else {
+        return a[column] - b[column];
+      }
+    }
+    )
+      
+    
+  
+
   }
 
 }

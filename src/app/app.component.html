@@ -17,13 +17,13 @@
 <table >
   <tr class="head">
     <th scope="col">Id</th>
-    <th scope="col">Name <i class="bi bi-sort-up" (click)="sort('name')"></i></th>
-    <th scope="col">Price <i class="bi bi-sort-up" (click)="sort('price')"></i></th>
-    <th scope="col">Category <i class="bi bi-sort-up" (click)="sort('category')"></i></th>
+    <th scope="col" (click)="sort('name')">Name </th>
+    <th scope="col" (click)="sort('price')">Price </th>
+    <th scope="col" (click)="sort('category')">Category </th>
     <th scope="col">Stock</th>
   </tr>
   <!-- [ngClass]="prod.stock > 0 ?'Norupture' : 'rupture' " -->
-  <tr [appHighlightDirective]="prod.stock" *ngFor="let prod of products | filterPipe:filtree  | tri:triAvec">
+  <tr [appHighlightDirective]="prod.stock" *ngFor="let prod of products | tri:triAvec | filterPipe:filtree  ">
     <td>{{prod.id}}</td>
     <td>{{prod.name }}</td>
     <td>{{prod.price | currency: 'EUR'}}</td>

@@ -46,8 +46,8 @@ export class AppComponent implements OnInit{
 
   triAvec:string="";
 
-  sort(column:string){
-    this.triAvec=column;
+  sort(triAvec:string){
+    this.triAvec=triAvec;
 
   }
 }
